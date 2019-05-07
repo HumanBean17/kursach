@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/lcrawn/Documents/GitHub/kursach/additional_func.cpp
+header.h
+/Users/lcrawn/Documents/GitHub/kursach/header.h
+
+/Users/lcrawn/Documents/GitHub/kursach/header.h
+iostream
+-
+fstream
+-
+string.h
+-
+vector
+-
+
+/Users/lcrawn/Documents/GitHub/kursach/main.cpp
+header.h
+/Users/lcrawn/Documents/GitHub/kursach/header.h
+

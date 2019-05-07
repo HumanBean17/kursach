@@ -57,18 +57,18 @@ include CMakeFiles/kursach.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/kursach.dir/flags.make
 
-CMakeFiles/kursach.dir/add_elem.cpp.o: CMakeFiles/kursach.dir/flags.make
-CMakeFiles/kursach.dir/add_elem.cpp.o: ../add_elem.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/lcrawn/Documents/GitHub/kursach/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/kursach.dir/add_elem.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kursach.dir/add_elem.cpp.o -c /Users/lcrawn/Documents/GitHub/kursach/add_elem.cpp
+CMakeFiles/kursach.dir/additional_func.cpp.o: CMakeFiles/kursach.dir/flags.make
+CMakeFiles/kursach.dir/additional_func.cpp.o: ../additional_func.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/lcrawn/Documents/GitHub/kursach/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/kursach.dir/additional_func.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kursach.dir/additional_func.cpp.o -c /Users/lcrawn/Documents/GitHub/kursach/additional_func.cpp
 
-CMakeFiles/kursach.dir/add_elem.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/kursach.dir/add_elem.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/lcrawn/Documents/GitHub/kursach/add_elem.cpp > CMakeFiles/kursach.dir/add_elem.cpp.i
+CMakeFiles/kursach.dir/additional_func.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/kursach.dir/additional_func.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/lcrawn/Documents/GitHub/kursach/additional_func.cpp > CMakeFiles/kursach.dir/additional_func.cpp.i
 
-CMakeFiles/kursach.dir/add_elem.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/kursach.dir/add_elem.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/lcrawn/Documents/GitHub/kursach/add_elem.cpp -o CMakeFiles/kursach.dir/add_elem.cpp.s
+CMakeFiles/kursach.dir/additional_func.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/kursach.dir/additional_func.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/lcrawn/Documents/GitHub/kursach/additional_func.cpp -o CMakeFiles/kursach.dir/additional_func.cpp.s
 
 CMakeFiles/kursach.dir/main.cpp.o: CMakeFiles/kursach.dir/flags.make
 CMakeFiles/kursach.dir/main.cpp.o: ../main.cpp
@@ -83,49 +83,19 @@ CMakeFiles/kursach.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/kursach.dir/main.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/lcrawn/Documents/GitHub/kursach/main.cpp -o CMakeFiles/kursach.dir/main.cpp.s
 
-CMakeFiles/kursach.dir/v_new.cpp.o: CMakeFiles/kursach.dir/flags.make
-CMakeFiles/kursach.dir/v_new.cpp.o: ../v_new.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/lcrawn/Documents/GitHub/kursach/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/kursach.dir/v_new.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kursach.dir/v_new.cpp.o -c /Users/lcrawn/Documents/GitHub/kursach/v_new.cpp
-
-CMakeFiles/kursach.dir/v_new.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/kursach.dir/v_new.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/lcrawn/Documents/GitHub/kursach/v_new.cpp > CMakeFiles/kursach.dir/v_new.cpp.i
-
-CMakeFiles/kursach.dir/v_new.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/kursach.dir/v_new.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/lcrawn/Documents/GitHub/kursach/v_new.cpp -o CMakeFiles/kursach.dir/v_new.cpp.s
-
-CMakeFiles/kursach.dir/v_push_back.cpp.o: CMakeFiles/kursach.dir/flags.make
-CMakeFiles/kursach.dir/v_push_back.cpp.o: ../v_push_back.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/lcrawn/Documents/GitHub/kursach/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/kursach.dir/v_push_back.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kursach.dir/v_push_back.cpp.o -c /Users/lcrawn/Documents/GitHub/kursach/v_push_back.cpp
-
-CMakeFiles/kursach.dir/v_push_back.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/kursach.dir/v_push_back.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/lcrawn/Documents/GitHub/kursach/v_push_back.cpp > CMakeFiles/kursach.dir/v_push_back.cpp.i
-
-CMakeFiles/kursach.dir/v_push_back.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/kursach.dir/v_push_back.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/lcrawn/Documents/GitHub/kursach/v_push_back.cpp -o CMakeFiles/kursach.dir/v_push_back.cpp.s
-
 # Object files for target kursach
 kursach_OBJECTS = \
-"CMakeFiles/kursach.dir/add_elem.cpp.o" \
-"CMakeFiles/kursach.dir/main.cpp.o" \
-"CMakeFiles/kursach.dir/v_new.cpp.o" \
-"CMakeFiles/kursach.dir/v_push_back.cpp.o"
+"CMakeFiles/kursach.dir/additional_func.cpp.o" \
+"CMakeFiles/kursach.dir/main.cpp.o"
 
 # External object files for target kursach
 kursach_EXTERNAL_OBJECTS =
 
-kursach: CMakeFiles/kursach.dir/add_elem.cpp.o
+kursach: CMakeFiles/kursach.dir/additional_func.cpp.o
 kursach: CMakeFiles/kursach.dir/main.cpp.o
-kursach: CMakeFiles/kursach.dir/v_new.cpp.o
-kursach: CMakeFiles/kursach.dir/v_push_back.cpp.o
 kursach: CMakeFiles/kursach.dir/build.make
 kursach: CMakeFiles/kursach.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/lcrawn/Documents/GitHub/kursach/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable kursach"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/lcrawn/Documents/GitHub/kursach/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable kursach"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/kursach.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

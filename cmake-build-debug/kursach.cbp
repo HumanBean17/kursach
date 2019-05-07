@@ -84,19 +84,13 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/lcrawn/Documents/GitHub/kursach/add_elem.cpp">
+		<Unit filename="/Users/lcrawn/Documents/GitHub/kursach/additional_func.cpp">
 			<Option target="kursach"/>
 		</Unit>
 		<Unit filename="/Users/lcrawn/Documents/GitHub/kursach/header.h">
 			<Option target="kursach"/>
 		</Unit>
 		<Unit filename="/Users/lcrawn/Documents/GitHub/kursach/main.cpp">
-			<Option target="kursach"/>
-		</Unit>
-		<Unit filename="/Users/lcrawn/Documents/GitHub/kursach/v_new.cpp">
-			<Option target="kursach"/>
-		</Unit>
-		<Unit filename="/Users/lcrawn/Documents/GitHub/kursach/v_push_back.cpp">
 			<Option target="kursach"/>
 		</Unit>
 		<Unit filename="/Users/lcrawn/Documents/GitHub/kursach/CMakeLists.txt">

@@ -71,7 +71,7 @@ CMAKE_BINARY_DIR = /Users/lcrawn/Documents/GitHub/kursach/cmake-build-debug
 CMakeFiles/kursach.dir/all:
 	$(MAKE) -f CMakeFiles/kursach.dir/build.make CMakeFiles/kursach.dir/depend
 	$(MAKE) -f CMakeFiles/kursach.dir/build.make CMakeFiles/kursach.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/lcrawn/Documents/GitHub/kursach/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5 "Built target kursach"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/lcrawn/Documents/GitHub/kursach/cmake-build-debug/CMakeFiles --progress-num=1,2,3 "Built target kursach"
 .PHONY : CMakeFiles/kursach.dir/all
 
 # Include target in all.
@@ -81,7 +81,7 @@ all: CMakeFiles/kursach.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/kursach.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lcrawn/Documents/GitHub/kursach/cmake-build-debug/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lcrawn/Documents/GitHub/kursach/cmake-build-debug/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/kursach.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lcrawn/Documents/GitHub/kursach/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/kursach.dir/rule

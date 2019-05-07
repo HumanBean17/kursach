@@ -123,32 +123,32 @@ kursach/fast:
 	$(MAKE) -f CMakeFiles/kursach.dir/build.make CMakeFiles/kursach.dir/build
 .PHONY : kursach/fast
 
-add_elem.o: add_elem.cpp.o
+additional_func.o: additional_func.cpp.o
 
-.PHONY : add_elem.o
+.PHONY : additional_func.o
 
 # target to build an object file
-add_elem.cpp.o:
-	$(MAKE) -f CMakeFiles/kursach.dir/build.make CMakeFiles/kursach.dir/add_elem.cpp.o
-.PHONY : add_elem.cpp.o
+additional_func.cpp.o:
+	$(MAKE) -f CMakeFiles/kursach.dir/build.make CMakeFiles/kursach.dir/additional_func.cpp.o
+.PHONY : additional_func.cpp.o
 
-add_elem.i: add_elem.cpp.i
+additional_func.i: additional_func.cpp.i
 
-.PHONY : add_elem.i
+.PHONY : additional_func.i
 
 # target to preprocess a source file
-add_elem.cpp.i:
-	$(MAKE) -f CMakeFiles/kursach.dir/build.make CMakeFiles/kursach.dir/add_elem.cpp.i
-.PHONY : add_elem.cpp.i
+additional_func.cpp.i:
+	$(MAKE) -f CMakeFiles/kursach.dir/build.make CMakeFiles/kursach.dir/additional_func.cpp.i
+.PHONY : additional_func.cpp.i
 
-add_elem.s: add_elem.cpp.s
+additional_func.s: additional_func.cpp.s
 
-.PHONY : add_elem.s
+.PHONY : additional_func.s
 
 # target to generate assembly for a file
-add_elem.cpp.s:
-	$(MAKE) -f CMakeFiles/kursach.dir/build.make CMakeFiles/kursach.dir/add_elem.cpp.s
-.PHONY : add_elem.cpp.s
+additional_func.cpp.s:
+	$(MAKE) -f CMakeFiles/kursach.dir/build.make CMakeFiles/kursach.dir/additional_func.cpp.s
+.PHONY : additional_func.cpp.s
 
 main.o: main.cpp.o
 
@@ -177,60 +177,6 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/kursach.dir/build.make CMakeFiles/kursach.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-v_new.o: v_new.cpp.o
-
-.PHONY : v_new.o
-
-# target to build an object file
-v_new.cpp.o:
-	$(MAKE) -f CMakeFiles/kursach.dir/build.make CMakeFiles/kursach.dir/v_new.cpp.o
-.PHONY : v_new.cpp.o
-
-v_new.i: v_new.cpp.i
-
-.PHONY : v_new.i
-
-# target to preprocess a source file
-v_new.cpp.i:
-	$(MAKE) -f CMakeFiles/kursach.dir/build.make CMakeFiles/kursach.dir/v_new.cpp.i
-.PHONY : v_new.cpp.i
-
-v_new.s: v_new.cpp.s
-
-.PHONY : v_new.s
-
-# target to generate assembly for a file
-v_new.cpp.s:
-	$(MAKE) -f CMakeFiles/kursach.dir/build.make CMakeFiles/kursach.dir/v_new.cpp.s
-.PHONY : v_new.cpp.s
-
-v_push_back.o: v_push_back.cpp.o
-
-.PHONY : v_push_back.o
-
-# target to build an object file
-v_push_back.cpp.o:
-	$(MAKE) -f CMakeFiles/kursach.dir/build.make CMakeFiles/kursach.dir/v_push_back.cpp.o
-.PHONY : v_push_back.cpp.o
-
-v_push_back.i: v_push_back.cpp.i
-
-.PHONY : v_push_back.i
-
-# target to preprocess a source file
-v_push_back.cpp.i:
-	$(MAKE) -f CMakeFiles/kursach.dir/build.make CMakeFiles/kursach.dir/v_push_back.cpp.i
-.PHONY : v_push_back.cpp.i
-
-v_push_back.s: v_push_back.cpp.s
-
-.PHONY : v_push_back.s
-
-# target to generate assembly for a file
-v_push_back.cpp.s:
-	$(MAKE) -f CMakeFiles/kursach.dir/build.make CMakeFiles/kursach.dir/v_push_back.cpp.s
-.PHONY : v_push_back.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -240,18 +186,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... kursach"
-	@echo "... add_elem.o"
-	@echo "... add_elem.i"
-	@echo "... add_elem.s"
+	@echo "... additional_func.o"
+	@echo "... additional_func.i"
+	@echo "... additional_func.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... v_new.o"
-	@echo "... v_new.i"
-	@echo "... v_new.s"
-	@echo "... v_push_back.o"
-	@echo "... v_push_back.i"
-	@echo "... v_push_back.s"
 .PHONY : help
 
 

@@ -4,10 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/lcrawn/Documents/GitHub/kursach/add_elem.cpp" "/Users/lcrawn/Documents/GitHub/kursach/cmake-build-debug/CMakeFiles/kursach.dir/add_elem.cpp.o"
+  "/Users/lcrawn/Documents/GitHub/kursach/additional_func.cpp" "/Users/lcrawn/Documents/GitHub/kursach/cmake-build-debug/CMakeFiles/kursach.dir/additional_func.cpp.o"
   "/Users/lcrawn/Documents/GitHub/kursach/main.cpp" "/Users/lcrawn/Documents/GitHub/kursach/cmake-build-debug/CMakeFiles/kursach.dir/main.cpp.o"
-  "/Users/lcrawn/Documents/GitHub/kursach/v_new.cpp" "/Users/lcrawn/Documents/GitHub/kursach/cmake-build-debug/CMakeFiles/kursach.dir/v_new.cpp.o"
-  "/Users/lcrawn/Documents/GitHub/kursach/v_push_back.cpp" "/Users/lcrawn/Documents/GitHub/kursach/cmake-build-debug/CMakeFiles/kursach.dir/v_push_back.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

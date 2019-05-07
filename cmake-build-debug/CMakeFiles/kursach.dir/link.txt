@@ -1,1 +1,1 @@
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/kursach.dir/add_elem.cpp.o CMakeFiles/kursach.dir/main.cpp.o CMakeFiles/kursach.dir/v_new.cpp.o CMakeFiles/kursach.dir/v_push_back.cpp.o  -o kursach 
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/kursach.dir/additional_func.cpp.o CMakeFiles/kursach.dir/main.cpp.o  -o kursach 

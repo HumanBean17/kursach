@@ -3,8 +3,11 @@
 
 # include <iostream>
 # include <fstream>
+# include <string.h>
+# include <vector>
+using namespace std;
 
-class add_elem;
+class 		graph;
 
 struct      els
 {
@@ -19,7 +22,13 @@ struct      orgraf
     els     *first;
 };
 
-els		    *v_new(float cost, int num);
-void		v_push_back(els **begin_list, float cost, int num);
+int				ft_atoi(string str);
+int 			ft_skip_tabs(string str);
+char			*ft_strnew(size_t size);
+char			*ft_strsub(string s, unsigned int start, size_t len);
+int				word_count(string str, char c);
+int				skip_tabs(string str, int i, char c);
+int				skip_letter(string str, int i, char c);
+char			**ft_strsplit(string s, char c);
 
-#endif HEADER_H
+#endif
