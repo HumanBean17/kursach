@@ -41,15 +41,18 @@ public:
 		while (tmp->next)
 			tmp = tmp->next;
 		tmp->next = ft_create_node(v_num, cost);
-
+		//cout << (*begin)->v << "  " << ((*begin)->next)->v << endl;
 	}
 	void 	ft_connect(int cur_num, int dest_num, float cost)
 	{
 		els *tmp;
 
-		//tmp = ft_node_find(v_num, node);
-		//ft_list_push_back(&tmp, v_num, cost);
-		cout << "cur = " << cur_num << " dest = " << dest_num << " cost = " << cost << endl;
+		for (int i = node.size() - 1; i > 0; i--)
+			if (node.at(i).v == cur_num)
+			{
+				tmp = &node.at(i);
+				ft_list_push_back(&tmp, dest_num, cost);
+			}
 	}
 	int		*ft_create_head(int v_num, orgraf **head)
 	{
@@ -68,9 +71,10 @@ public:
 		while (i < 7)
 		{
 			tmp = &node.at(i);
-			while (tmp->next)
+			//cout <<  tmp->v << "  " << (tmp->next)->v << endl;
+			while (tmp)
 			{
-				cout << "vertex = " << tmp->v << "cost = " << tmp->len << endl;
+				cout << "vertex = " << tmp->v << " cost = " << tmp->len << endl;
 				tmp = tmp->next;
 			}
 			i++;
@@ -78,17 +82,6 @@ public:
 	}
 	~graph () {};
 };
-
-els		*ft_node_find(int v_num, vector<els> node)
-{
-	els *tmp;
-
-	tmp = nullptr;
-	for (int i = node.size() - 1; i > 0; i--)
-		if (node.at(i).v == v_num)
-			tmp = &node.at(i);
-	return (tmp);
-}
 
 int     main()
 {
@@ -100,9 +93,9 @@ int     main()
 	char 			**str;
 	graph 			*a;
 
-	cout << "Введите путь к файлу:" << endl;
-	cin >> filename;
-	file.open(filename);
+	//cout << "Введите путь к файлу:" << endl;
+	//cin >> filename;
+	file.open("/Users/lcrawn/Documents/GitHub/kursach/graph1.tgf");
 	if (!file.is_open())
 	{
 		cout << "Ошибка при открытии файла" << endl;
