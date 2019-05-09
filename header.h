@@ -8,6 +8,7 @@
 using namespace std;
 
 class 		graph;
+class 		func_graph;
 
 struct      els
 {

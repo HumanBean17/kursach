@@ -1,29 +1,26 @@
 #include "header.h"
 
-els 			*ft_node_find(int v_num, vector<els> node);
-
 class 			graph
 {
-	friend els *ft_node_find(int v_num, vector<els> node);
 private:
-	orgraf 			*or_tmp;
-	els	   			*v_tmp;
-	vector<els> 	node;
+	orgraf 		*or_tmp;
+	els	   		*v_tmp;
+	vector<els> node;
 public:
-	graph (vector<int> num)
+	graph 		(vector<int> num)
 	{
 		int j = -1;
 
-		for (int i = num.size(); i > 0; i--)
+		for (int i = 0; i < num.size(); i++)
 		{
 			j++;
-			if (j == 0)
-				ft_create_head(num.at(j), &or_tmp);
 			v_tmp = ft_create_node(num.at(j), 0);
 			node.push_back(*v_tmp);
+			if (j == 0)
+				ft_create_head(num.at(j), &or_tmp, &v_tmp);
 		}
 	};
-	els		*ft_create_node(int v_num, float cost)
+	els			*ft_create_node(int v_num, float cost)
 	{
 		els *tmp;
 
@@ -33,7 +30,15 @@ public:
 		tmp->next = nullptr;
 		return (tmp);
 	}
-	void	ft_list_push_back(els **begin, int v_num, float cost)
+	int			*ft_create_head(int v_num, orgraf **head, els **tmp)
+	{
+		*head = new orgraf;
+
+		(*head)->v_first = v_num;
+		(*head)->first = *tmp;
+		return (nullptr);
+	}
+	void		ft_list_push_back(els **begin, int v_num, float cost)
 	{
 		els *tmp;
 
@@ -41,57 +46,116 @@ public:
 		while (tmp->next)
 			tmp = tmp->next;
 		tmp->next = ft_create_node(v_num, cost);
-		//cout << (*begin)->v << "  " << ((*begin)->next)->v << endl;
 	}
-	void 	ft_connect(int cur_num, int dest_num, float cost)
+	void 		ft_connect(int cur_num, int dest_num, float cost)
 	{
 		els *tmp;
 
+		tmp = ft_find(cur_num);
+		ft_list_push_back(&tmp, dest_num, cost);
+	}
+	els			*ft_find(int cur_num)
+	{
 		for (int i = node.size() - 1; i > 0; i--)
 			if (node.at(i).v == cur_num)
-			{
-				tmp = &node.at(i);
-				ft_list_push_back(&tmp, dest_num, cost);
-			}
-	}
-	int		*ft_create_head(int v_num, orgraf **head)
-	{
-		*head = new orgraf;
-
-		(*head)->v_first = v_num;
-		(*head)->first = nullptr;
+				return (&node.at(i));
 		return (nullptr);
 	}
-	void 	ft_check(void)
+	void 		ft_check(void)
 	{
 		int i;
 		els *tmp;
 
 		i = 0;
+		cout << "Вершина графа: v" << (or_tmp->first)->v << endl;
 		while (i < 7)
 		{
 			tmp = &node.at(i);
-			//cout <<  tmp->v << "  " << (tmp->next)->v << endl;
 			while (tmp)
 			{
-				cout << "vertex = " << tmp->v << " cost = " << tmp->len << endl;
+				cout << "v" << tmp->v << " cost = " << tmp->len;
 				tmp = tmp->next;
+				if (tmp)
+					cout << " -> ";
+				else
+					cout << " -> NULL";
 			}
+			cout << endl;
 			i++;
 		}
 	}
-	~graph () {};
+	friend 		func_graph;
+	~graph 		() {};
+};
+
+class 			func_graph
+{
+public:
+	func_graph 	() {};
+	void		ft_way(graph &my_graph, int x)
+	{
+		els *u;
+		int sum;
+
+		sum = 0;
+		for (int i = 0; i < my_graph.node.size(); i++)
+		{
+			u = &my_graph.node.at(i);
+			dfs(u, my_graph);
+		}
+
+	}
+	int 		dfs(els *u, graph &my_graph)
+	{
+		static vector<int> visited(my_graph.node.size(), false);
+		els *tmp;
+
+		visited.at(u->v - 1) = true;
+		//for (int i = 0; i < visited.size(); i++)
+		//	cout << visited.at(i) << " ";
+		//cout << endl;
+		//cout << u->v << " -> ";
+		while (u->next)
+		{
+			u = u->next;
+			if (!(ft_int_vector_find(visited, u->v)))
+			{
+				tmp = ft_els_vector_find(my_graph, u->v);
+				cout << "v" << tmp->v << " found " << (tmp->next)->v << endl;
+				dfs(tmp, my_graph);
+			}
+		}
+		cout << "========" << endl;
+		return (0);
+	}
+	els 		*ft_els_vector_find(graph &my_graph, int num)
+	{
+		for (int i = 0; i < my_graph.node.size(); i++)
+			if (my_graph.node.at(i).v == num)
+				return (&my_graph.node.at(i));
+		return (nullptr);
+	}
+	bool		ft_int_vector_find(vector<int> s, int to_find)
+	{
+		for (int i = 0; i < s.size(); i++)
+			if (s.at(i) == to_find)
+				return (true);
+		return (false);
+	}
+	~func_graph () {};
 };
 
 int     main()
 {
+	string 		filename;
+	string		tmp;
+	ifstream	file;
+	vector<int>	ar;
+	graph 		*a;
+	func_graph 	b;
+	char 		**str;
+	int 		x;
 	setlocale(LC_ALL, "ru");
-	string 			filename;
-	string			tmp;
-	ifstream		file;
-	vector<int>		ar;
-	char 			**str;
-	graph 			*a;
 
 	//cout << "Введите путь к файлу:" << endl;
 	//cin >> filename;
@@ -110,5 +174,8 @@ int     main()
 		a->ft_connect(ft_atoi(str[0]), ft_atoi(str[1]), ft_atoi(str[2]));
 	}
 	a->ft_check();
+	//cout << "Введите длину пути:" << endl;
+	//cin >> x;
+	b.ft_way(*a, 1);
     return (0);
 }
