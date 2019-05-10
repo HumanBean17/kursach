@@ -83,6 +83,7 @@ public:
 			cout << endl;
 			i++;
 		}
+		cout << endl;
 	}
 	friend 		func_graph;
 	~graph 		() {};
@@ -92,40 +93,37 @@ class 			func_graph
 {
 public:
 	func_graph 	() {};
-	void		ft_way(graph &my_graph, int x)
+	void 		ft_do_dfs(graph &my_graph, int x)
 	{
 		els *u;
-		int sum;
+		vector<bool> visited(my_graph.node.size() + 1, false);
 
-		sum = 0;
-		for (int i = 0; i < my_graph.node.size(); i++)
-		{
-			u = &my_graph.node.at(i);
-			dfs(u, my_graph);
-		}
-
+		u = &my_graph.node.at(i);
+		dfs(u, my_graph, &visited);
 	}
-	int 		dfs(els *u, graph &my_graph)
+	int 		dfs(els *u, graph &my_graph, vector<bool> *visited)
 	{
-		static vector<int> visited(my_graph.node.size(), false);
 		els *tmp;
 
-		visited.at(u->v - 1) = true;
-		//for (int i = 0; i < visited.size(); i++)
-		//	cout << visited.at(i) << " ";
-		//cout << endl;
-		//cout << u->v << " -> ";
+		visited->at(u->v) = true;
+		cout << "v" << u->v << endl;
 		while (u->next)
 		{
 			u = u->next;
-			if (!(ft_int_vector_find(visited, u->v)))
+			//cout << "u = " << u->v << endl;
+			//cout << u->v << " next " << endl;
+			/*if (!(ft_int_vector_find(*visited, u->v)))
 			{
 				tmp = ft_els_vector_find(my_graph, u->v);
-				cout << "v" << tmp->v << " found " << (tmp->next)->v << endl;
-				dfs(tmp, my_graph);
-			}
+				dfs(tmp, my_graph, visited);
+				cout << "==========" << endl;
+				//cout << "tmp = " << tmp->v << endl;
+			}*/
+			tmp = ft_els_vector_find(my_graph, u->v);
+			dfs(tmp, my_graph, visited);
 		}
-		cout << "========" << endl;
+		//cout << "v" << u->v << endl;
+		cout << "==========" << endl;
 		return (0);
 	}
 	els 		*ft_els_vector_find(graph &my_graph, int num)
@@ -135,11 +133,13 @@ public:
 				return (&my_graph.node.at(i));
 		return (nullptr);
 	}
-	bool		ft_int_vector_find(vector<int> s, int to_find)
+	bool		ft_int_vector_find(vector<bool> s, int to_find)
 	{
-		for (int i = 0; i < s.size(); i++)
-			if (s.at(i) == to_find)
+		for (int i = 0; i <= s.size(); i++)
+		{
+			if (i == to_find && i == true)
 				return (true);
+		}
 		return (false);
 	}
 	~func_graph () {};
@@ -176,6 +176,6 @@ int     main()
 	a->ft_check();
 	//cout << "Введите длину пути:" << endl;
 	//cin >> x;
-	b.ft_way(*a, 1);
+	b.ft_do_dfs(*a, 1);
     return (0);
 }
