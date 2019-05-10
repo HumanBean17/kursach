@@ -96,17 +96,27 @@ public:
 	void 		ft_do_dfs(graph &my_graph, int x)
 	{
 		els *u;
-		vector<bool> visited(my_graph.node.size() + 1, false);
+		vector<bool> visited(my_graph.node.size(), false);
+		int flag;
+		int sum;
 
-		u = &my_graph.node.at(i);
-		dfs(u, my_graph, &visited);
+		sum = 0;
+		for (int i = 0; i < visited.size(); i++)
+		{
+			u = &my_graph.node.at(i);
+			flag = 0;
+			cout << "v" << u->v << " -> ";
+			dfs(u, my_graph, &visited, &sum);
+			cout << "NULL" << endl;
+			cout << "========" << endl;
+		}
 	}
-	int 		dfs(els *u, graph &my_graph, vector<bool> *visited)
+	int 		dfs(els *u, graph &my_graph, vector<bool> *visited, int *sum)
 	{
 		els *tmp;
 
-		visited->at(u->v) = true;
-		cout << "v" << u->v << endl;
+		visited->at(u->v - 1) = true;
+		cout << "v" << u->v << " -> ";
 		while (u->next)
 		{
 			u = u->next;
@@ -120,10 +130,10 @@ public:
 				//cout << "tmp = " << tmp->v << endl;
 			}*/
 			tmp = ft_els_vector_find(my_graph, u->v);
-			dfs(tmp, my_graph, visited);
+			dfs(tmp, my_graph, visited, sum);
 		}
 		//cout << "v" << u->v << endl;
-		cout << "==========" << endl;
+		cout << "NULL" << endl;
 		return (0);
 	}
 	els 		*ft_els_vector_find(graph &my_graph, int num)
