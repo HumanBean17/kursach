@@ -1,34 +1,5 @@
 #include "header.h"
 
-int		ft_atoi(string str)
-{
-	int					i;
-	unsigned long int	c;
-	int					flag;
-
-	flag = 1;
-	c = 0;
-	i = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
-		i++;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		flag = (str[i] == '-') ? -1 : 1;
-		i++;
-	}
-	if (str[i] < 48 || str[i] > 57)
-		return (0);
-	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
-	{
-		c = (c * 10) + ((int)str[i++] - 48);
-		if (c >= 9223372036854775807 && flag == 1)
-			return (-1);
-		if (c > 9223372036854775807 && flag == -1)
-			return (0);
-	}
-	return (c * (unsigned long int)flag);
-}
-
 char	*ft_strnew(size_t size)
 {
 	char *str;

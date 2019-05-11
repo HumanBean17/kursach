@@ -23,8 +23,6 @@ struct      orgraf
     els     *first;
 };
 
-int				ft_atoi(string str);
-int 			ft_skip_tabs(string str);
 char			*ft_strnew(size_t size);
 char			*ft_strsub(string s, unsigned int start, size_t len);
 int				word_count(string str, char c);

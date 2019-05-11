@@ -47,12 +47,14 @@ public:
 			tmp = tmp->next;
 		tmp->next = ft_create_node(v_num, cost);
 	}
-	void 		ft_connect(int cur_num, int dest_num, float cost)
+	void 		ft_connect(string s)
 	{
 		els *tmp;
+		char **str;
 
-		tmp = ft_find(cur_num);
-		ft_list_push_back(&tmp, dest_num, cost);
+		str = ft_strsplit(s, ' ');
+		tmp = ft_find(stoi(str[0]));
+		ft_list_push_back(&tmp, stoi(str[1]), stoi(str[2]));
 	}
 	els			*ft_find(int cur_num)
 	{
@@ -68,7 +70,7 @@ public:
 
 		i = 0;
 		cout << "Вершина графа: v" << (or_tmp->first)->v << endl;
-		while (i < 7)
+		while (i < node.size())
 		{
 			tmp = &node.at(i);
 			while (tmp)
@@ -152,6 +154,26 @@ public:
 		}
 		return (false);
 	}
+	void 		ft_add_v(graph &my_graph)
+	{
+		int x;
+		int y;
+		els *tmp;
+
+		y = 1;
+		my_graph.node.push_back(*my_graph.ft_create_node(my_graph.node.size() + 1, 0));
+		cout << "Должна ли вершина быть изолированной? 1/0" << endl;
+		cin >> x;
+		if (x == 0)
+		{
+			while (y > 0)
+			{
+				cout << "Введите вершину, с которыми должна быть смежна новая вершина. Для окончания ввода, введите '-1'" << endl;
+				cin >> y;
+				my_graph.ft_list_push_back(ft_els_vector_find(my_graph, x), y);
+			}
+		}
+	}
 	~func_graph () {};
 };
 
@@ -163,8 +185,6 @@ int     main()
 	vector<int>	ar;
 	graph 		*a;
 	func_graph 	b;
-	char 		**str;
-	int 		x;
 	setlocale(LC_ALL, "ru");
 
 	//cout << "Введите путь к файлу:" << endl;
@@ -179,13 +199,12 @@ int     main()
 		ar.push_back((int) tmp[0] - 48);
 	a = new graph(ar);
 	while (getline(file, tmp))
-	{
-		str = ft_strsplit(tmp, ' ');
-		a->ft_connect(ft_atoi(str[0]), ft_atoi(str[1]), ft_atoi(str[2]));
-	}
+		a->ft_connect(tmp);
 	a->ft_check();
 	//cout << "Введите длину пути:" << endl;
 	//cin >> x;
-	b.ft_do_dfs(*a, 1);
+	//b.ft_do_dfs(*a, 1);
+	b.ft_add_v(*a);
+	a->ft_check();
     return (0);
 }
