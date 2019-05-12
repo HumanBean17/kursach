@@ -151,7 +151,7 @@ public:
 				return (&my_graph.node.at(i));
 		return (nullptr);
 	}
-	bool		ft_int_vector_find(vector<bool> s, int to_find)
+	bool		ft_bool_vector_find(vector<bool> s, int to_find)
 	{
 		for (int i = 0; i <= s.size(); i++)
 		{
@@ -181,6 +181,46 @@ public:
 				ft_change_direction(my_graph, func, x, y);
 			}
 			add = 0;
+		}
+	}
+	void 		ft_change_weight(graph &my_graph)
+	{
+		els *tmp;
+		int l;
+		int m;
+		int n;
+
+		cout << "Номера вершин, между которыми необходимо изменить вес ребра" << endl;
+		cin >> m;
+		cin >> n;
+		cout << "Введите новый вес ребра:" << endl;
+		cin >> l;
+		tmp = ft_els_vector_find(my_graph, m);
+		if (!ft_list_find(tmp, n))
+		{
+			while (tmp)
+			{
+				if (tmp->v == n)
+				{
+					tmp->len = l;
+					return ;
+				}
+				tmp = tmp->next;
+			}
+		}
+		else
+		{
+			tmp = ft_els_vector_find(my_graph, n);
+			cout << tmp->v << endl;
+			while (tmp)
+			{
+				if (tmp->v == m)
+				{
+					tmp->len = l;
+					return;
+				}
+				tmp = tmp->next;
+			}
 		}
 	}
 	void 		ft_change_direction(graph &my_graph, func_graph &func, int f_x, int f_y)
@@ -327,7 +367,7 @@ int     main()
 	//cin >> x;
 	//b.ft_do_dfs(*a, 1);
 	//b.ft_add_v(*a, b);
-	b.ft_change_direction(*a, b, 4, 5);
+	//b.ft_change_direction(*a, b, 4, 5);
 	a->ft_check();
     return (0);
 }
