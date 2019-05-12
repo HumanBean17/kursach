@@ -13,7 +13,6 @@
   <component name="ChangeListManager">
     <list default="true" id="649479ff-15ab-4343-bd2b-2f14d39d6261" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/kursach.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/kursach.dir/CXX.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/kursach.dir/main.cpp.o" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/kursach" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/kursach" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
@@ -64,25 +63,21 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="196" column="28" lean-forward="true" selection-start-line="196" selection-start-column="28" selection-end-line="196" selection-end-column="28" />
+            <state relative-caret-position="603">
+              <caret line="140" column="48" selection-start-line="140" selection-start-column="48" selection-end-line="140" selection-end-column="48" />
               <folding>
-                <element signature="e#21#1603#1" />
-                <element signature="e#112#344#0" />
-                <element signature="e#347#503#0" />
-                <element signature="e#505#665#0" />
-                <element signature="e#667#844#0" />
-                <element signature="e#846#1021#0" />
-                <element signature="e#1023#1178#0" />
-                <element signature="e#1180#1562#0" />
-                <element signature="e#1682#2048#0" />
-                <element signature="e#2050#2689#0" />
-                <element signature="e#2691#2889#0" />
-                <element signature="e#2891#3067#0" />
-                <element signature="e#4028#4492#0" />
-                <element signature="e#4538#4806#0" />
-                <element signature="e#4654#5025#0" />
-                <element signature="e#5191#5381#0" />
+                <element signature="e#21#1729#1" />
+                <element signature="e#2660#2879#0" />
+                <element signature="e#2742#2940#0" />
+                <element signature="e#2942#3119#0" />
+                <element signature="e#3121#3661#0" />
+                <element signature="e#3663#4270#0" />
+                <element signature="e#4272#4616#0" />
+                <element signature="e#4618#5088#0" />
+                <element signature="e#5090#5312#0" />
+                <element signature="e#5314#5738#0" />
+                <element signature="e#5889#6440#0" />
+                <element signature="e#6442#6993#0" />
               </folding>
             </state>
           </provider>
@@ -114,7 +109,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="435" />
+    <option name="x" value="776" />
     <option name="y" value="23" />
     <option name="width" value="1799" />
     <option name="height" value="1335" />
@@ -188,12 +183,14 @@
       <workItem from="1557503593624" duration="1247000" />
       <workItem from="1557566937352" duration="2674000" />
       <workItem from="1557570297315" duration="5142000" />
-      <workItem from="1557652248411" duration="8180000" />
+      <workItem from="1557652248411" duration="9911000" />
+      <workItem from="1557663536437" duration="2581000" />
+      <workItem from="1557666125533" duration="4095000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59522000" />
+    <option name="totallyTimeSpent" value="67929000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -205,10 +202,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="435" y="23" width="1799" height="1335" extended-state="0" />
-    <editor active="true" />
+    <frame x="974" y="23" width="1799" height="1335" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12293682" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12521343" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -232,17 +228,6 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/main.cpp</url>
-          <line>59</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/test" />
@@ -291,25 +276,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="196" column="28" lean-forward="true" selection-start-line="196" selection-start-column="28" selection-end-line="196" selection-end-column="28" />
+        <state relative-caret-position="603">
+          <caret line="140" column="48" selection-start-line="140" selection-start-column="48" selection-end-line="140" selection-end-column="48" />
           <folding>
-            <element signature="e#21#1603#1" />
-            <element signature="e#112#344#0" />
-            <element signature="e#347#503#0" />
-            <element signature="e#505#665#0" />
-            <element signature="e#667#844#0" />
-            <element signature="e#846#1021#0" />
-            <element signature="e#1023#1178#0" />
-            <element signature="e#1180#1562#0" />
-            <element signature="e#1682#2048#0" />
-            <element signature="e#2050#2689#0" />
-            <element signature="e#2691#2889#0" />
-            <element signature="e#2891#3067#0" />
-            <element signature="e#4028#4492#0" />
-            <element signature="e#4538#4806#0" />
-            <element signature="e#4654#5025#0" />
-            <element signature="e#5191#5381#0" />
+            <element signature="e#21#1729#1" />
+            <element signature="e#2660#2879#0" />
+            <element signature="e#2742#2940#0" />
+            <element signature="e#2942#3119#0" />
+            <element signature="e#3121#3661#0" />
+            <element signature="e#3663#4270#0" />
+            <element signature="e#4272#4616#0" />
+            <element signature="e#4618#5088#0" />
+            <element signature="e#5090#5312#0" />
+            <element signature="e#5314#5738#0" />
+            <element signature="e#5889#6440#0" />
+            <element signature="e#6442#6993#0" />
           </folding>
         </state>
       </provider>

@@ -1,5 +1,7 @@
 #include "header.h"
 
+int g;
+
 class 			graph
 {
 private:
@@ -105,44 +107,50 @@ public:
 	{
 		els *u;
 		vector<bool> visited(my_graph.node.size(), false);
-		int flag;
-		int sum;
+		float sum;
 
 		sum = 0;
-		for (int i = 0; i < visited.size(); i++)
+		for (int i = 0; i < my_graph.node.size(); i++)
 		{
+			g = 0;
 			u = &my_graph.node.at(i);
-			flag = 0;
-			cout << "v" << u->v << " -> ";
-			dfs(u, my_graph, &visited, &sum);
-			cout << "NULL" << endl;
-			cout << "========" << endl;
+			vector<int>	 way(my_graph.node.size());
+			way.at(g) = u->v;
+			dfs(u, my_graph, &visited, &way, &sum, x);
+			way.clear();
 		}
 	}
-	int 		dfs(els *u, graph &my_graph, vector<bool> *visited, int *sum)
+	int 		dfs(els *u, graph &my_graph, vector<bool> *visited, vector<int> *way, float *sum, int x)
 	{
 		els *tmp;
+		els *const_u;
 
-		visited->at(u->v - 1) = true;
-		cout << "v" << u->v << " -> ";
+		way->at(g) = u->v;
 		while (u->next)
 		{
 			u = u->next;
-			//cout << "u = " << u->v << endl;
-			//cout << u->v << " next " << endl;
-			/*if (!(ft_int_vector_find(*visited, u->v)))
-			{
-				tmp = ft_els_vector_find(my_graph, u->v);
-				dfs(tmp, my_graph, visited);
-				cout << "==========" << endl;
-				//cout << "tmp = " << tmp->v << endl;
-			}*/
+			*sum += u->len;
+			if (*sum == x)
+				ft_print_way(my_graph, way, *sum);
+			g++;
 			tmp = ft_els_vector_find(my_graph, u->v);
-			dfs(tmp, my_graph, visited, sum);
+			dfs(tmp, my_graph, visited, way, sum, x);
 		}
-		//cout << "v" << u->v << endl;
-		cout << "NULL" << endl;
+		/*if (*sum != 0)
+			ft_print_way(my_graph, way, *sum);*/
+		way->at(g) = 0;
+		g--;
+		*sum = 0;
 		return (0);
+	}
+	void		ft_print_way(graph &my_graph, vector<int> *way, float sum)
+	{
+		for (int j = 0; j < way->size(); j++)
+		{
+			if (way->at(j) != 0)
+				cout << way->at(j) << " -> ";
+		}
+		cout << "NULL || len = " << sum << endl;
 	}
 	els 		*ft_els_vector_find(graph &my_graph, int num)
 	{
@@ -211,7 +219,6 @@ public:
 		else
 		{
 			tmp = ft_els_vector_find(my_graph, n);
-			cout << tmp->v << endl;
 			while (tmp)
 			{
 				if (tmp->v == m)
@@ -247,6 +254,7 @@ public:
 		if (tmp == to_del)
 		{
 			*alst = tmp->next;
+			cout << tmp->v << endl;
 			free(tmp);
 			return ;
 		}
@@ -277,6 +285,27 @@ public:
 				return (false);
 		}
 		return (true);
+	}
+	void 		ft_del_vertex(graph &my_graph)
+	{
+		els *tmp;
+		els *cur;
+		int num;
+
+		cout << "Введите номер вершины, которую вы хотите удалить" << endl;
+		cin >> num;
+		my_graph.node.erase(my_graph.node.begin() + num - 1);
+		for (int i = 0; i < my_graph.node.size() - 1; i++)
+		{
+			tmp = &my_graph.node.at(i);
+			cur = tmp;
+			while (tmp)
+			{
+				if (tmp->v == num)
+					ft_lstdelone(&cur, tmp);
+				tmp = tmp->next;
+			}
+		}
 	}
 	friend 		void operator < (graph &my_graph, func_graph &func);
 	friend 		void operator > (graph &my_graph, func_graph &func);
@@ -347,6 +376,7 @@ int     main()
 	vector<int>	ar;
 	graph 		*a;
 	func_graph 	b;
+	int 		x;
 	setlocale(LC_ALL, "ru");
 
 	//cout << "Введите путь к файлу:" << endl;
@@ -363,11 +393,12 @@ int     main()
 	while (getline(file, tmp))
 		a->ft_connect(tmp);
 	a->ft_check();
-	//cout << "Введите длину пути:" << endl;
-	//cin >> x;
-	//b.ft_do_dfs(*a, 1);
+	cout << "Введите длину пути:" << endl;
+	cin >> x;
+	b.ft_do_dfs(*a, x);
 	//b.ft_add_v(*a, b);
 	//b.ft_change_direction(*a, b, 4, 5);
-	a->ft_check();
+	//b.ft_del_vertex(*a);
+	//a->ft_check();
     return (0);
 }
