@@ -88,11 +88,17 @@ public:
 		cout << endl;
 	}
 	friend 		func_graph;
+	friend 		void operator > (graph &my_graph, func_graph &func);
+	friend 		void operator < (graph &my_graph, func_graph &func);
 	~graph 		() {};
 };
 
 class 			func_graph
 {
+private:
+	int x;
+	int y;
+	int add;
 public:
 	func_graph 	() {};
 	void 		ft_do_dfs(graph &my_graph, int x)
@@ -154,28 +160,144 @@ public:
 		}
 		return (false);
 	}
-	void 		ft_add_v(graph &my_graph)
+	void 		ft_add_v(graph &my_graph, func_graph &func)
 	{
-		int x;
-		int y;
-		els *tmp;
+		char z;
 
 		y = 1;
+		add = 1;
 		my_graph.node.push_back(*my_graph.ft_create_node(my_graph.node.size() + 1, 0));
 		cout << "Должна ли вершина быть изолированной? 1/0" << endl;
 		cin >> x;
 		if (x == 0)
 		{
-			while (y > 0)
+			x = my_graph.node.size();
+			while (true)
 			{
 				cout << "Введите вершину, с которыми должна быть смежна новая вершина. Для окончания ввода, введите '-1'" << endl;
 				cin >> y;
-				my_graph.ft_list_push_back(ft_els_vector_find(my_graph, x), y);
+				if (y < 0)
+					break;
+				ft_change_direction(my_graph, func, x, y);
 			}
+			add = 0;
 		}
 	}
+	void 		ft_change_direction(graph &my_graph, func_graph &func, int f_x, int f_y)
+	{
+		char f_z;
+
+		func.x = f_x;
+		func.y = f_y;
+		printf("Введите направление ребра. Формат :\n> (из v%d можно попасть в v%d)\n< (из v%d можно попасть в v%d)\n", f_x, f_y, f_y, f_x);
+		cin >> f_z;
+		if (f_z == '>')
+			my_graph > func;
+		else
+			my_graph < func;
+	}
+	void    	ft_lstdelone(els **alst, els *to_del)
+	{
+		els    *tmp;
+		els    *cp;
+
+		tmp = *alst;
+		if (!tmp || !to_del)
+			return ;
+		if (tmp == to_del)
+		{
+			*alst = tmp->next;
+			free(tmp);
+			return ;
+		}
+		while(tmp->next != to_del)
+			tmp = tmp->next;
+		cp = tmp->next;
+		if (tmp->next != nullptr && (tmp->next)->next == nullptr)
+		{
+			tmp->next = nullptr;
+			free(cp);
+		}
+		else
+		{
+			tmp->next = (tmp->next)->next;
+			free(cp);
+		}
+	}
+	bool		ft_list_find(els *begin_list, int num)
+	{
+		els *tmp;
+
+		tmp = begin_list;
+		if (tmp)
+		{
+			while ((tmp->next) && num != tmp->v)
+				tmp = tmp->next;
+			if (tmp->v == num)
+				return (false);
+		}
+		return (true);
+	}
+	friend 		void operator < (graph &my_graph, func_graph &func);
+	friend 		void operator > (graph &my_graph, func_graph &func);
 	~func_graph () {};
 };
+
+void operator < (graph &my_graph, func_graph &func)
+{
+	els *tmp;
+	els *head;
+
+	if (func.add == 1)
+	{
+		tmp = func.ft_els_vector_find(my_graph, func.y);
+		my_graph.ft_list_push_back(&tmp, func.x, 0);
+		return ;
+	}
+	tmp = func.ft_els_vector_find(my_graph, func.y);
+	if (!func.ft_list_find(tmp, func.x))
+		return ;
+	my_graph.ft_list_push_back(&tmp, func.x, 0);
+	tmp = &my_graph.node.at(func.x - 1);
+	head = &my_graph.node.at(func.x - 1);
+	while (tmp)
+	{
+		if (tmp->v == func.y)
+		{
+			func.ft_lstdelone(&head, tmp);
+			break ;
+		}
+		tmp = tmp->next;
+	}
+}
+
+void operator > (graph &my_graph, func_graph &func)
+{
+	els *tmp;
+	els *head;
+
+	if (func.add == 1)
+	{
+		tmp = func.ft_els_vector_find(my_graph, func.x);
+		my_graph.ft_list_push_back(&tmp, func.y, 0);
+		return ;
+	}
+	tmp = func.ft_els_vector_find(my_graph, func.x);
+	if (!func.ft_list_find(tmp, func.y))
+		return ;
+	my_graph.ft_list_push_back(&tmp, func.y, 0);
+	tmp = &my_graph.node.at(func.y - 1);
+	head = &my_graph.node.at(func.y - 1);
+	while (tmp)
+	{
+		if (tmp->v == func.x)
+		{
+			func.ft_lstdelone(&head, tmp);
+			break ;
+		}
+		tmp = tmp->next;
+	}
+}
 
 int     main()
 {
@@ -204,7 +326,8 @@ int     main()
 	//cout << "Введите длину пути:" << endl;
 	//cin >> x;
 	//b.ft_do_dfs(*a, 1);
-	b.ft_add_v(*a);
+	//b.ft_add_v(*a, b);
+	b.ft_change_direction(*a, b, 4, 5);
 	a->ft_check();
     return (0);
 }
