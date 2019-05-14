@@ -56,11 +56,12 @@ public:
 
 		str = ft_strsplit(s, ' ');
 		tmp = ft_find(stoi(str[0]));
-		ft_list_push_back(&tmp, stoi(str[1]), stoi(str[2]));
+		if (str[2] != nullptr)
+		    ft_list_push_back(&tmp, stoi(str[1]), stoi(str[2]));
 	}
 	els			*ft_find(int cur_num)
 	{
-		for (int i = node.size() - 1; i > 0; i--)
+		for (int i = 0; i < node.size(); i++)
 			if (node.at(i).v == cur_num)
 				return (&node.at(i));
 		return (nullptr);
@@ -136,8 +137,6 @@ public:
 			tmp = ft_els_vector_find(my_graph, u->v);
 			dfs(tmp, my_graph, visited, way, sum, x);
 		}
-		/*if (*sum != 0)
-			ft_print_way(my_graph, way, *sum);*/
 		way->at(g) = 0;
 		g--;
 		*sum = 0;
@@ -145,10 +144,13 @@ public:
 	}
 	void		ft_print_way(graph &my_graph, vector<int> *way, float sum)
 	{
+	    int k;
+
 		for (int j = 0; j < way->size(); j++)
 		{
 			if (way->at(j) != 0)
 				cout << way->at(j) << " -> ";
+			k = j;
 		}
 		cout << "NULL || len = " << sum << endl;
 	}
@@ -379,25 +381,31 @@ int     main()
 	int 		x;
 	setlocale(LC_ALL, "ru");
 
-	//cout << "Введите путь к файлу:" << endl;
-	//cin >> filename;
-	file.open("/Users/lcrawn/Documents/GitHub/kursach/graph1.tgf");
+	cout << "Введите путь к файлу:" << endl;
+	cin >> filename;
+	file.open(filename);
 	if (!file.is_open())
 	{
 		cout << "Ошибка при открытии файла" << endl;
 		return (1);
 	}
 	while (getline(file, tmp) && tmp[0] != '#')
-		ar.push_back((int) tmp[0] - 48);
+		ar.push_back(stoi(tmp));
 	a = new graph(ar);
 	while (getline(file, tmp))
-		a->ft_connect(tmp);
+	{
+	    //cout << endl << endl;
+	    a->ft_check();
+	    cout << tmp << endl;
+        a->ft_connect(tmp);
+    }
 	a->ft_check();
 	cout << "Введите длину пути:" << endl;
 	cin >> x;
 	b.ft_do_dfs(*a, x);
 	//b.ft_add_v(*a, b);
-	//b.ft_change_direction(*a, b, 4, 5);
+	b.ft_change_direction(*a, b, 15, 9);
+    a->ft_check();
 	//b.ft_del_vertex(*a);
 	//a->ft_check();
     return (0);
