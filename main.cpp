@@ -107,7 +107,6 @@ public:
 	void 		ft_do_dfs(graph &my_graph, int x)
 	{
 		els *u;
-		vector<bool> visited(my_graph.node.size(), false);
 		float sum;
 
 		sum = 0;
@@ -116,9 +115,12 @@ public:
 			g = 0;
 			u = &my_graph.node.at(i);
 			vector<int>	 way(my_graph.node.size());
+            vector<bool> visited(my_graph.node.size() + 1, false);
 			way.at(g) = u->v;
+			my_graph.v_tmp = u;
 			dfs(u, my_graph, &visited, &way, &sum, x);
 			way.clear();
+			visited.clear();
 		}
 	}
 	int 		dfs(els *u, graph &my_graph, vector<bool> *visited, vector<int> *way, float *sum, int x)
@@ -127,15 +129,21 @@ public:
 		els *const_u;
 
 		way->at(g) = u->v;
+		visited->at(u->v) = true;
 		while (u->next)
 		{
 			u = u->next;
 			*sum += u->len;
+            g++;
 			if (*sum == x)
-				ft_print_way(my_graph, way, *sum);
-			g++;
+			{
+                way->at(g) = u->v;
+                ft_print_way(my_graph, way, *sum);
+            }
 			tmp = ft_els_vector_find(my_graph, u->v);
-			dfs(tmp, my_graph, visited, way, sum, x);
+			if (!ft_bool_vector_find(visited, u->v))
+			    dfs(tmp, my_graph, visited, way, sum, x);
+            way->at(g) = 0;
 		}
 		way->at(g) = 0;
 		g--;
@@ -161,14 +169,12 @@ public:
 				return (&my_graph.node.at(i));
 		return (nullptr);
 	}
-	bool		ft_bool_vector_find(vector<bool> s, int to_find)
+	int		ft_bool_vector_find(vector<bool> *s, int to_find)
 	{
-		for (int i = 0; i <= s.size(); i++)
-		{
-			if (i == to_find && i == true)
-				return (true);
-		}
-		return (false);
+		for (int i = 1; i < s->size(); i++)
+			if (i == to_find && s->at(i) == true)
+				return (1);
+		return (0);
 	}
 	void 		ft_add_v(graph &my_graph, func_graph &func)
 	{
@@ -245,18 +251,28 @@ public:
 		else
 			my_graph < func;
 	}
-	void    	ft_lstdelone(els **alst, els *to_del)
+	void    	ft_lstdelone(els **alst, els *to_del, graph &my_graph)
 	{
+	    els    *cur;
 		els    *tmp;
 		els    *cp;
 
+		for (int i = 0; i < my_graph.node.size();i++)
+        {
+		    if (my_graph.node.at(i).v)
+		    {
+                cur = &my_graph.node.at(i);
+                break;
+            }
+        }
 		tmp = *alst;
 		if (!tmp || !to_del)
 			return ;
 		if (tmp == to_del)
 		{
+		    free(my_graph.or_tmp);
 			*alst = tmp->next;
-			cout << tmp->v << endl;
+			my_graph.ft_create_head(cur->v, &my_graph.or_tmp, &cur);
 			free(tmp);
 			return ;
 		}
@@ -296,19 +312,23 @@ public:
 
 		cout << "Введите номер вершины, которую вы хотите удалить" << endl;
 		cin >> num;
-		my_graph.node.erase(my_graph.node.begin() + num - 1);
-		for (int i = 0; i < my_graph.node.size() - 1; i++)
+		for (int i = 0; i < my_graph.node.size(); i++)
 		{
 			tmp = &my_graph.node.at(i);
 			cur = tmp;
 			while (tmp)
 			{
 				if (tmp->v == num)
-					ft_lstdelone(&cur, tmp);
+                    ft_lstdelone(&cur, tmp, my_graph);
 				tmp = tmp->next;
 			}
 		}
+        my_graph.node.erase(my_graph.node.begin() + num - 1);
 	}
+	orgraf      *FIRST(graph &my_graph)
+    {
+	    return (my_graph.or_tmp);
+    }
 	friend 		void operator < (graph &my_graph, func_graph &func);
 	friend 		void operator > (graph &my_graph, func_graph &func);
 	~func_graph () {};
@@ -335,7 +355,7 @@ void operator < (graph &my_graph, func_graph &func)
 	{
 		if (tmp->v == func.y)
 		{
-			func.ft_lstdelone(&head, tmp);
+			func.ft_lstdelone(&head, tmp, my_graph);
 			break ;
 		}
 		tmp = tmp->next;
@@ -363,7 +383,7 @@ void operator > (graph &my_graph, func_graph &func)
 	{
 		if (tmp->v == func.x)
 		{
-			func.ft_lstdelone(&head, tmp);
+			func.ft_lstdelone(&head, tmp, my_graph);
 			break ;
 		}
 		tmp = tmp->next;
@@ -393,20 +413,16 @@ int     main()
 		ar.push_back(stoi(tmp));
 	a = new graph(ar);
 	while (getline(file, tmp))
-	{
-	    //cout << endl << endl;
-	    a->ft_check();
-	    cout << tmp << endl;
         a->ft_connect(tmp);
-    }
 	a->ft_check();
-	cout << "Введите длину пути:" << endl;
-	cin >> x;
-	b.ft_do_dfs(*a, x);
+	//cout << "Введите длину пути:" << endl;
+	//cin >> x;
+	//b.ft_do_dfs(*a, x);
 	//b.ft_add_v(*a, b);
-	b.ft_change_direction(*a, b, 15, 9);
+	//b.ft_change_direction(*a, b, 15, 9);
+    b.ft_del_vertex(*a);
+    //b.ft_change_weight(*a);
+    //b.FIRST(*a);
     a->ft_check();
-	//b.ft_del_vertex(*a);
-	//a->ft_check();
     return (0);
 }
