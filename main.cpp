@@ -298,7 +298,7 @@ public:
 		if (tmp)
 		{
 			while ((tmp->next) && num != tmp->v)
-				tmp = tmp->next;
+                tmp = tmp->next;
 			if (tmp->v == num)
 				return (false);
 		}
@@ -325,9 +325,66 @@ public:
 		}
         my_graph.node.erase(my_graph.node.begin() + num - 1);
 	}
+	void        ft_del_edge(graph &my_graph)
+    {
+	    int f_x;
+	    int f_y;
+	    els *tmp;
+	    els *cur;
+
+	    cout << "Введите вершины, ребро между которыми должно быть удалено" << endl;
+	    cin >> f_x;
+	    cin >> f_y;
+	    tmp = &my_graph.node.at(f_x - 1);
+	    if (!ft_list_find(tmp, f_y))
+	    {
+            cur = tmp;
+            while (cur->v != f_y)
+                cur = cur->next;
+            ft_lstdelone(&tmp, cur, my_graph);
+            return ;
+        }
+        tmp = &my_graph.node.at(f_y - 1);
+	    if (!ft_list_find(tmp, f_x))
+        {
+            cur = tmp;
+            while (cur->v != f_x)
+                cur = cur->next;
+            ft_lstdelone(&tmp, cur, my_graph);
+            return ;
+        }
+    }
 	orgraf      *FIRST(graph &my_graph)
     {
+	    cout << "Первая вершина в графе v" << my_graph.or_tmp->v_first << endl;
 	    return (my_graph.or_tmp);
+    }
+    els         *NEXT(graph &my_graph, int V, int i)
+    {
+	    els *tmp;
+
+	    tmp = &my_graph.node.at(V - 1);
+	    while (tmp->v != i)
+            tmp = tmp->next;
+	    if (tmp->next)
+	        cout << "Вершина смежная с v" << V << " v" << tmp->next->v << endl;
+	    return (tmp->next);
+    }
+    els         *VERTEX(graph &my_graph, int V, int i)
+    {
+	    els *tmp;
+	    int j;
+
+	    j = 0;
+	    tmp = &my_graph.node.at(V - 1);
+	    while (tmp->next && j < i)
+        {
+	        tmp = tmp->next;
+	        j++;
+        }
+	    if (tmp)
+	        cout << "v" << tmp->v << endl;
+	    return (tmp);
     }
 	friend 		void operator < (graph &my_graph, func_graph &func);
 	friend 		void operator > (graph &my_graph, func_graph &func);
@@ -420,9 +477,12 @@ int     main()
 	//b.ft_do_dfs(*a, x);
 	//b.ft_add_v(*a, b);
 	//b.ft_change_direction(*a, b, 15, 9);
-    b.ft_del_vertex(*a);
+    //b.ft_del_vertex(*a);
     //b.ft_change_weight(*a);
     //b.FIRST(*a);
+    //b.NEXT(*a, 17, 9);
+    //b.VERTEX(*a, 17, 9);
+    //b.ft_del_edge(*a);
     a->ft_check();
     return (0);
 }
