@@ -273,6 +273,7 @@ public:
 		    free(my_graph.or_tmp);
 			*alst = tmp->next;
 			my_graph.ft_create_head(cur->v, &my_graph.or_tmp, &cur);
+            cout << tmp->next->v << endl;
 			free(tmp);
 			return ;
 		}
@@ -312,7 +313,7 @@ public:
 
 		cout << "Введите номер вершины, которую вы хотите удалить" << endl;
 		cin >> num;
-		for (int i = 0; i < my_graph.node.size(); i++)
+		for (int i = num + 1; i < my_graph.node.size(); i++)
 		{
 			tmp = &my_graph.node.at(i);
 			cur = tmp;
@@ -476,7 +477,7 @@ int     main()
 	//cin >> x;
 	//b.ft_do_dfs(*a, x);
 	//b.ft_add_v(*a, b);
-	//b.ft_change_direction(*a, b, 15, 9);
+	//b.ft_change_direction(*a, b, 20, 21);
     //b.ft_del_vertex(*a);
     //b.ft_change_weight(*a);
     //b.FIRST(*a);
