@@ -72,7 +72,7 @@ public:
 		els *tmp;
 
 		i = 0;
-		cout << "Вершина графа: v" << (or_tmp->first)->v << endl;
+		cout << "Вершина графа: v" << (or_tmp->v_first) << endl;
 		while (i < node.size())
 		{
 			tmp = &node.at(i);
@@ -259,7 +259,8 @@ public:
 
 		for (int i = 0; i < my_graph.node.size();i++)
         {
-		    if (my_graph.node.at(i).v)
+		    cur = &my_graph.node.at(i);
+		    if (i > 0 && my_graph.node.at(i - 1).v == to_del->v)
 		    {
                 cur = &my_graph.node.at(i);
                 break;
@@ -270,11 +271,9 @@ public:
 			return ;
 		if (tmp == to_del)
 		{
-		    free(my_graph.or_tmp);
-			*alst = tmp->next;
-			my_graph.ft_create_head(cur->v, &my_graph.or_tmp, &cur);
-            cout << tmp->next->v << endl;
-			free(tmp);
+			*alst = cur->next;
+			if (to_del->v == my_graph.or_tmp->v_first)
+			    my_graph.or_tmp->v_first = (cur)->v;
 			return ;
 		}
 		while(tmp->next != to_del)
@@ -313,7 +312,7 @@ public:
 
 		cout << "Введите номер вершины, которую вы хотите удалить" << endl;
 		cin >> num;
-		for (int i = num + 1; i < my_graph.node.size(); i++)
+		for (int i = 0; i < my_graph.node.size(); i++)
 		{
 			tmp = &my_graph.node.at(i);
 			cur = tmp;
@@ -473,17 +472,17 @@ int     main()
 	while (getline(file, tmp))
         a->ft_connect(tmp);
 	a->ft_check();
-	//cout << "Введите длину пути:" << endl;
-	//cin >> x;
-	//b.ft_do_dfs(*a, x);
+	cout << "Введите длину пути:" << endl;
+	cin >> x;
+	b.ft_do_dfs(*a, x);
 	//b.ft_add_v(*a, b);
-	//b.ft_change_direction(*a, b, 20, 21);
+	//b.ft_change_direction(*a, b, 5, 7);
     //b.ft_del_vertex(*a);
     //b.ft_change_weight(*a);
     //b.FIRST(*a);
     //b.NEXT(*a, 17, 9);
     //b.VERTEX(*a, 17, 9);
     //b.ft_del_edge(*a);
-    a->ft_check();
+    //a->ft_check();
     return (0);
 }
